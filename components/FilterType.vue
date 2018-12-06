@@ -3,17 +3,27 @@
     <p>{{filter.name}}</p>
     <div class="img"
       :class="filter.name"
-      :style="{ backgroundImage: 'url(' + image + ')' }">
+      :style="{ backgroundImage: 'url(' + image + ')' }"
+      @click="selectedFilter"
+      >
     </div> 
   </div>
 </template>
 
 <script>
+import EventBus from "../event-bus.js";
 export default {
   name: "FilterType",
   props: {
     filter: Object,
     image: String
+  },
+  methods: {
+    selectedFilter() {
+      EventBus.$emit(
+        "filter-selected", { filter: this.filter.name }
+      );
+    }
   }
 };
 </script>
