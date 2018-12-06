@@ -1,6 +1,4 @@
-# test-project
-
-> A Vue.js project
+# Vuegram tuto
 
 ## Build Setup
 
